@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "etl_controle_de_vendas"
+version = "1.0.0"
+description = "Rotina ETL para uma base de dados de controle de vendas. Avaliação da matéria Laboratório de Banco de Dados."
+authors = ["Natália Fonseca <nataliabf@outlook.com>, Natalie Macedo <macedonatalie@gmail.com>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+pandas = "^1.4.2"
+pg8000 = "^1.24.1"
+SQLAlchemy = "^1.4.35"
+
+[tool.poetry.dev-dependencies]
+ipykernel = "^6.12.1"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

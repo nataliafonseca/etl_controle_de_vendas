@@ -1,0 +1,27 @@
+version: "3.8"
+
+services:
+  operational_db:
+    image: postgres
+    container_name: operational_db
+    restart: on-failure
+    ports:
+      - 5433:5432
+    environment:
+      - TZ=America/Fortaleza
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=123456
+      - POSTGRES_DB=operational_db
+    volumes:
+      - ./init_db/:/docker-entrypoint-initdb.d/
+  dimensional_db:
+    image: postgres
+    container_name: dimensional_db
+    restart: on-failure
+    ports:
+      - 5434:5432
+    environment:
+      - TZ=America/Fortaleza
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=123456
+      - POSTGRES_DB=dimensional_db
