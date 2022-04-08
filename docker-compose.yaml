@@ -13,7 +13,7 @@ services:
       - POSTGRES_PASSWORD=123456
       - POSTGRES_DB=operational_db
     volumes:
-      - ./init_db/:/docker-entrypoint-initdb.d/
+      - ./init_operational_db/:/docker-entrypoint-initdb.d/
   dimensional_db:
     image: postgres
     container_name: dimensional_db
@@ -25,3 +25,5 @@ services:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=123456
       - POSTGRES_DB=dimensional_db
+    volumes:
+      - ./init_dimensional_db.sql:/docker-entrypoint-initdb.d/init_dimensional_db.sql
