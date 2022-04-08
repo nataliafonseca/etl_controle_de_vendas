@@ -52,7 +52,7 @@ CREATE TABLE dimensional.dm_produto (
 );
 CREATE TABLE dimensional.dm_classe_produto (
   id_classe_produto INT PRIMARY KEY NOT NULL,
-  classe_produto VARCHAR(6) NOT NULL,
+  classe_produto VARCHAR(7) NOT NULL,
   descricao_classe_produto VARCHAR(300) NOT NULL
 );
 CREATE TABLE dimensional.dm_tempo (
@@ -65,12 +65,12 @@ CREATE TABLE dimensional.dm_tempo (
   trimestre CHAR(6) NOT NULL
 );
 CREATE TABLE dimensional.ft_vendas (
-  id_cliente INT NOT NULL REFERENCES dimensional.dm_cliente ON DELETE RESTRICT ON UPDATE CASCADE,
-  id_vendedor INT NOT NULL REFERENCES dimensional.dm_vendedor ON DELETE RESTRICT ON UPDATE CASCADE,
-  id_nivel_vendedor INT NOT NULL REFERENCES dimensional.dm_nivel_vendedor ON DELETE RESTRICT ON UPDATE CASCADE,
-  id_produto INT NOT NULL REFERENCES dimensional.dm_produto ON DELETE RESTRICT ON UPDATE CASCADE,
-  id_classe_produto INT NOT NULL REFERENCES dimensional.dm_classe_produto ON DELETE RESTRICT ON UPDATE CASCADE,
-  id_tempo INT NOT NULL REFERENCES dimensional.dm_tempo ON DELETE RESTRICT ON UPDATE CASCADE,
+  id_cliente INT NOT NULL REFERENCES dimensional.dm_cliente ON DROP CASCADE ON UPDATE CASCADE,
+  id_vendedor INT NOT NULL REFERENCES dimensional.dm_vendedor ON DROP CASCADE ON UPDATE CASCADE,
+  id_nivel_vendedor INT NOT NULL REFERENCES dimensional.dm_nivel_vendedor ON DROP CASCADE ON UPDATE CASCADE,
+  id_produto INT NOT NULL REFERENCES dimensional.dm_produto ON DROP CASCADE ON UPDATE CASCADE,
+  id_classe_produto INT NOT NULL REFERENCES dimensional.dm_classe_produto ON DROP CASCADE ON UPDATE CASCADE,
+  id_tempo INT NOT NULL REFERENCES dimensional.dm_tempo ON DROP CASCADE ON UPDATE CASCADE,
   valor_unitario NUMERIC(10, 2) NOT NULL,
   total_venda NUMERIC(10, 2) NOT NULL,
   desconto_venda NUMERIC(10, 2) NOT NULL
